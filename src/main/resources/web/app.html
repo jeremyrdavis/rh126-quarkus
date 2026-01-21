@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Vegas Trivia - Red Hat One Las Vegas</title>
+    <link rel="icon" type="image/svg+xml" href="/static/logo.svg"/>
+    {#bundle /}
+</head>
+<body>
+    <div id="app">
+        <!-- Login Screen -->
+        <div id="login-screen" class="screen">
+            <div class="container">
+                <h1 class="banner">Welcome to Red Hat One Las Vegas Trivia</h1>
+                <form id="login-form" class="login-form">
+                    <div class="form-group">
+                        <label for="username-input">Username</label>
+                        <input
+                            type="text"
+                            id="username-input"
+                            name="username"
+                            placeholder="Enter your name"
+                            autocomplete="off"
+                            aria-describedby="username-error"
+                            maxlength="30"
+                        />
+                        <div id="username-error" class="error-message" role="alert" aria-live="polite"></div>
+                    </div>
+                    <button type="submit" id="start-button" class="btn btn-primary" disabled>
+                        Start Playing
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Welcome Screen -->
+        <div id="welcome-screen" class="screen hidden">
+            <div class="container">
+                <div class="welcome-card">
+                    <h2 id="welcome-message"></h2>
+                </div>
+            </div>
+        </div>
+
+        <!-- Game Screen -->
+        <div id="game-screen" class="screen hidden">
+            <div class="container">
+                <div class="game-content">
+                    <!-- Loading Spinner -->
+                    <div id="question-loading" class="loading-container hidden">
+                        <p class="loading-message">Loading...</p>
+                    </div>
+
+                    <!-- Error Display -->
+                    <div id="question-error" class="error-container hidden">
+                        <div class="error-message visible" role="alert" aria-live="polite">
+                            <p id="error-text"></p>
+                        </div>
+                        <button type="button" id="retry-question" class="btn btn-primary">
+                            Try Again
+                        </button>
+                    </div>
+
+                    <!-- Question Display -->
+                    <div id="question-display" class="question-container hidden">
+                        <h2 id="question-text"></h2>
+
+                        <div class="answer-options">
+                            <button type="button" id="answer-a" class="answer-btn" data-answer="A">
+                                <span class="answer-label">A:</span> <span class="answer-text"></span>
+                            </button>
+                            <button type="button" id="answer-b" class="answer-btn" data-answer="B">
+                                <span class="answer-label">B:</span> <span class="answer-text"></span>
+                            </button>
+                            <button type="button" id="answer-c" class="answer-btn" data-answer="C">
+                                <span class="answer-label">C:</span> <span class="answer-text"></span>
+                            </button>
+                            <button type="button" id="answer-d" class="answer-btn" data-answer="D">
+                                <span class="answer-label">D:</span> <span class="answer-text"></span>
+                            </button>
+                        </div>
+
+                        <p id="environment-message" class="environment-message"></p>
+
+                        <button type="button" id="submit-answer" class="btn btn-primary" disabled>
+                            Submit Answer
+                        </button>
+
+                        <div class="game-navigation">
+                            <button type="button" id="view-leaderboard" class="btn-nav">View Leaderboard</button>
+                        </div>
+                    </div>
+
+                    <!-- Result Display -->
+                    <div id="result-display" class="result-container hidden">
+                        <div id="result-message" class="result-message"></div>
+                        <p id="result-question" class="result-question-text"></p>
+                        <p id="result-correct-answer" class="correct-answer-text"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Leaderboard Screen -->
+        <div id="leaderboard-screen" class="screen hidden">
+            <div class="container">
+                <div class="leaderboard-content">
+                    <!-- Navigation -->
+                    <div class="leaderboard-navigation">
+                        <button type="button" id="back-to-game" class="btn-nav">Back to Game</button>
+                    </div>
+
+                    <h2 class="leaderboard-title">Leaderboard</h2>
+
+                    <!-- Loading Spinner -->
+                    <div id="leaderboard-loading" class="loading-container hidden">
+                        <p class="loading-message">Loading leaderboard...</p>
+                    </div>
+
+                    <!-- Error Display -->
+                    <div id="leaderboard-error" class="error-container hidden">
+                        <div class="error-message visible" role="alert" aria-live="polite">
+                            <p id="leaderboard-error-text"></p>
+                        </div>
+                        <button type="button" id="retry-leaderboard" class="btn btn-primary">
+                            Try Again
+                        </button>
+                    </div>
+
+                    <!-- Leaderboard List -->
+                    <div id="leaderboard-list" class="leaderboard-list hidden"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
