@@ -383,6 +383,13 @@ input[type="text"].input-success:focus {
     text-align: center;
 }
 
+/* Keyword Highlighting */
+.keyword-highlight {
+    color: var(--color-primary);
+    font-weight: 600;
+    font-style: normal;
+}
+
 /* Result Display */
 .result-container {
     text-align: center;

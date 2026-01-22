@@ -388,6 +388,35 @@ class VegasTriviaApp {
         return shuffled;
     }
 
+    /**
+     * Highlights specific keywords in a text message.
+     * Wraps keywords in a span with the 'keyword-highlight' class.
+     */
+    private highlightKeywords(text: string): string {
+        const keywords = [
+            'Quarkus',
+            'OpenShift',
+            'OpenShift Virt',
+            'OpenShift AI',
+            'JBoss EAP 8',
+            'Kubernetes'
+        ];
+
+        let highlightedText = text;
+
+        // Sort keywords by length (descending) to match longer phrases first
+        // This prevents "OpenShift" from matching before "OpenShift AI"
+        const sortedKeywords = [...keywords].sort((a, b) => b.length - a.length);
+
+        sortedKeywords.forEach(keyword => {
+            // Use case-insensitive matching and global flag
+            const regex = new RegExp(`(${keyword})`, 'gi');
+            highlightedText = highlightedText.replace(regex, '<span class="keyword-highlight">$1</span>');
+        });
+
+        return highlightedText;
+    }
+
     private displayQuestion(): void {
         if (!this.questionData) {
             return;
@@ -433,8 +462,8 @@ class VegasTriviaApp {
             this.answerMapping.set(shuffledOptions[index].letter, displayLetters[index]);
         });
 
-        // Display environment message
-        this.environmentMessage.textContent = this.questionData.environment;
+        // Display environment message with keyword highlighting
+        this.environmentMessage.innerHTML = this.highlightKeywords(this.questionData.environment);
 
         // Reset state
         this.selectedAnswer = null;
