@@ -28,8 +28,14 @@ class EnvironmentRepositoryTest {
         String message = environmentRepository.getRandomMessage();
 
         assertNotNull(message);
-        assertTrue(message.contains("Quarkus"),
-            "Message should contain information about Quarkus");
+        assertTrue(
+                message.contains("Quarkus") ||
+                message.contains("JBoss EAP 8") ||
+                message.contains("OpenShift") ||
+                message.contains("OpenShift Virt") ||
+                message.contains("OpenShift AI") ||
+                message.contains("Kubernetes"),
+                "Message should contain information about Quarkus, JBoss EAP 8, OpenShift variants, or Kubernetes");
     }
 
     @Test

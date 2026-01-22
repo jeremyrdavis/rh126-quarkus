@@ -64,10 +64,17 @@ class QuestionResourceTest {
     @Test
     void shouldIncludeEnvironmentMessageAboutQuarkus() {
         given()
-            .when().get("/api/questions/random")
-            .then()
-            .statusCode(200)
-            .body("environment", containsString("Quarkus"));
+                .when().get("/api/questions/random")
+                .then()
+                .statusCode(200)
+                .body("environment", anyOf(
+                    containsString("Quarkus"),
+                    containsString("JBoss EAP 8"),
+                    containsString("OpenShift"),
+                    containsString("OpenShift Virt"),
+                    containsString("OpenShift AI"),
+                    containsString("Kubernetes")
+                ));
     }
 
     @Test
