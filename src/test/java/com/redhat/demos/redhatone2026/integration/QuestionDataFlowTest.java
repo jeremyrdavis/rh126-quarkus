@@ -28,7 +28,7 @@ class QuestionDataFlowTest {
         List<Question> questions = questionService.getAllQuestions();
 
         assertNotNull(questions, "Questions should not be null");
-        assertEquals(15, questions.size(), "Should load exactly 15 questions from JSON");
+        assertEquals(138, questions.size(), "Should load exactly 138 questions from JSON");
     }
 
     @Test
