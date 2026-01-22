@@ -374,6 +374,19 @@ class VegasTriviaApp {
         }
     }
 
+    /**
+     * Shuffles an array using the Fisher-Yates algorithm.
+     * Returns a new shuffled array without modifying the original.
+     */
+    private shuffleArray<T>(array: T[]): T[] {
+        const shuffled = [...array];
+        for (let i = shuffled.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+        }
+        return shuffled;
+    }
+
     private displayQuestion(): void {
         if (!this.questionData) {
             return;
@@ -390,17 +403,25 @@ class VegasTriviaApp {
         // Populate question text
         this.questionText.textContent = this.questionData.questionText;
 
-        // Populate answer buttons
-        const options = [
-            this.questionData.option1,
-            this.questionData.option2,
-            this.questionData.option3,
-            this.questionData.option4,
+        // Create array of options with their corresponding answer letters
+        const answerLetters = ['A', 'B', 'C', 'D'];
+        const optionsWithLetters = [
+            { text: this.questionData.option1, letter: 'A' },
+            { text: this.questionData.option2, letter: 'B' },
+            { text: this.questionData.option3, letter: 'C' },
+            { text: this.questionData.option4, letter: 'D' },
         ];
 
+        // Shuffle the options
+        const shuffledOptions = this.shuffleArray(optionsWithLetters);
+
+        // Populate answer buttons with shuffled options
         this.answerButtons.forEach((button, index) => {
             const answerTextSpan = button.querySelector('.answer-text') as HTMLElement;
-            answerTextSpan.textContent = options[index];
+            answerTextSpan.textContent = shuffledOptions[index].text;
+
+            // Update the data-answer attribute to match the original letter
+            button.setAttribute('data-answer', shuffledOptions[index].letter);
         });
 
         // Display environment message
