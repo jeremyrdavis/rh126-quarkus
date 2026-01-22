@@ -98,6 +98,7 @@ class VegasTriviaApp {
     private selectedAnswer: string | null = null;
     private leaderboardData: LeaderboardEntry[] = [];
     private leaderboardRefreshTimer: number | null = null;
+    private answerMapping: Map<string, string> = new Map(); // Maps original letter to display letter
 
     constructor() {
         this.storageManager = new StorageManager();
@@ -415,6 +416,10 @@ class VegasTriviaApp {
         // Shuffle the options
         const shuffledOptions = this.shuffleArray(optionsWithLetters);
 
+        // Clear and rebuild the answer mapping
+        this.answerMapping.clear();
+        const displayLetters = ['A', 'B', 'C', 'D'];
+
         // Populate answer buttons with shuffled options
         this.answerButtons.forEach((button, index) => {
             const answerTextSpan = button.querySelector('.answer-text') as HTMLElement;
@@ -422,6 +427,10 @@ class VegasTriviaApp {
 
             // Update the data-answer attribute to match the original letter
             button.setAttribute('data-answer', shuffledOptions[index].letter);
+
+            // Store mapping from original letter to display letter
+            // e.g., if original "C" is now shown at button position 0 (A), map "C" -> "A"
+            this.answerMapping.set(shuffledOptions[index].letter, displayLetters[index]);
         });
 
         // Display environment message
@@ -623,8 +632,13 @@ class VegasTriviaApp {
         );
         const correctAnswerText = correctAnswerObj ? correctAnswerObj.text : 'Unknown';
 
+        // Map the backend's correct answer letter to the display letter
+        // response.correctAnswer is the original position (A, B, C, or D)
+        // We need to show which button letter it appeared as after shuffling
+        const displayLetter = this.answerMapping.get(response.correctAnswer) || response.correctAnswer;
+
         // Display correct answer with letter and text
-        this.resultCorrectAnswer.textContent = `Correct answer: ${response.correctAnswer} - ${correctAnswerText}`;
+        this.resultCorrectAnswer.textContent = `Correct answer: ${displayLetter} - ${correctAnswerText}`;
 
         // Automatically load next question after delay
         setTimeout(() => {
