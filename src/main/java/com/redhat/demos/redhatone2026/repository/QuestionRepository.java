@@ -20,7 +20,7 @@ import java.util.concurrent.ThreadLocalRandom;
 public class QuestionRepository {
 
     private static final Logger LOG = Logger.getLogger(QuestionRepository.class);
-    private static final String QUESTIONS_FILE = "/questions.json";
+    private static final String QUESTIONS_FILE = "/trivia_questions.json";
 
     private final HashMap<UUID, Question> questionMap;
     private final ObjectMapper objectMapper;
@@ -52,7 +52,7 @@ public class QuestionRepository {
                 questionMap.put(question.id(), question);
             }
 
-            LOG.infof("Successfully loaded %d questions from %s", questionMap.size(), QUESTIONS_FILE);
+            LOG.debugf("Successfully loaded %d questions from %s", questionMap.size(), QUESTIONS_FILE);
 
         } catch (IOException e) {
             String errorMsg = "Failed to load questions from " + QUESTIONS_FILE + ": " + e.getMessage();

@@ -11,10 +11,10 @@ import java.util.concurrent.ThreadLocalRandom;
 @ApplicationScoped
 public class EnvironmentRepository {
 
-    private static final String MESSAGE_1 = "This question served by JBoss EAP 8 monolithic on OpenShift Virt.";
-    private static final String MESSAGE_2 = "This question served by JBoss EAP 8 on OpenShitft Virt in combination with a Quarkus microservice on Kubernetes.";
+    private static final String MESSAGE_1 = "This question served by JBoss EAP 8 on OpenShift Virt.";
+    private static final String MESSAGE_2 = "This question served by JBoss EAP 8 on OpenShitft Virt in combination with Quarkus on Kubernetes.";
     private static final String MESSAGE_3 = "This question served by Quarkus microservices on OpenShift.";
-    private static final String MESSAGE_4 = "This question served by Quarkus microservices on OpenShift with the help of HuggingFaceH4/zephyr-7b-beta on OpenShift AI.";
+    private static final String MESSAGE_4 = "This question served by Quarkus microservices with the help of HuggingFaceH4/zephyr-7b-beta on OpenShift AI.";
 
     /**
      * Retrieves a random Quarkus informational message from the available set.
