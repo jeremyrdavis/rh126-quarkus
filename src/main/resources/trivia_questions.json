@@ -1431,7 +1431,7 @@
   },
   {
     "id": "55c09792-66b9-4a94-b651-557ba26b2368",
-    "questionText": "Russell Road and Sahara Avenue are the southern and northern boundaries of what 4.2 mile stretch of road popular with tourists in the Southwestern US? Itâs where people can âsâee amazing shows, garish architecture, and how to lose their money.",
+    "questionText": "Russell Road and Sahara Avenue are the southern and northern boundaries of what 4.2 mile stretch of road popular with tourists in the Southwestern US? It's where people can see amazing shows, garish architecture, and how to lose their money.",
     "optionalAnswers": [
       {
         "id": "da0a69a3-a981-4c43-8ad4-9be71fe3d184",
@@ -1440,17 +1440,17 @@
       },
       {
         "id": "d24f9716-484c-4ed7-9059-a7e9718da343",
-        "text": "Option A",
+        "text": "Northern Strip",
         "isCorrect": false
       },
       {
         "id": "c831512b-2f97-404a-93a8-c4b653471d41",
-        "text": "Option B",
+        "text": "Southern Strip",
         "isCorrect": false
       },
       {
         "id": "67b89572-bd2d-4ffd-b603-7bda057f2c4c",
-        "text": "Option C",
+        "text": "Lake Tahoe",
         "isCorrect": false
       }
     ]
@@ -2636,17 +2636,17 @@
       },
       {
         "id": "b1435d58-a883-487c-a425-641ff1b37d2f",
-        "text": "Option A",
+        "text": "Earnhardt",
         "isCorrect": false
       },
       {
         "id": "39a879d5-bfdc-4398-8fab-aed138aa86f5",
-        "text": "Option B",
+        "text": "Trickle",
         "isCorrect": false
       },
       {
         "id": "7c3bfe64-4372-4189-a6cc-cec5d0ecc911",
-        "text": "Option C",
+        "text": "Johnson",
         "isCorrect": false
       }
     ]
@@ -2839,22 +2839,22 @@
     "optionalAnswers": [
       {
         "id": "9709331a-43fb-475f-8db5-c80ad7d7bc75",
-        "text": "Honey",
+        "text": "Honey, I Shrunk the Kids",
         "isCorrect": true
       },
       {
         "id": "552bceff-16b8-43ba-83be-675e718268a9",
-        "text": "Option A",
+        "text": "Honey, I Blew Up the Kid",
         "isCorrect": false
       },
       {
         "id": "e56450ae-efe3-4c26-9c4f-54325820d5d2",
-        "text": "Option B",
+        "text": "Viva, Las Vegas",
         "isCorrect": false
       },
       {
         "id": "62294382-0f65-4542-8ad3-08d979bd6470",
-        "text": "Option C",
+        "text": "Ocean's Eleven",
         "isCorrect": false
       }
     ]
@@ -3520,17 +3520,17 @@
       },
       {
         "id": "fde15a88-f4b8-4db3-b6df-f334078d4b6e",
-        "text": "Option A",
+        "text": "Hard Workin'",
         "isCorrect": false
       },
       {
         "id": "4acbf85e-415c-4150-b330-7a9c284c79d0",
-        "text": "Option B",
+        "text": "Hammerin'",
         "isCorrect": false
       },
       {
         "id": "15a99339-f6c3-4d67-b929-8a7db4357cbc",
-        "text": "Option C",
+        "text": "Tobacco Chewin'",
         "isCorrect": false
       }
     ]
